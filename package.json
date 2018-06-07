@@ -45,7 +45,6 @@
     "jest-cli": "^16.0.2",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
-    "material-ui": "^0.18.7",
     "react-addons-test-utils": "^15.3.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-tap-event-plugin": "^2.0.0",
@@ -54,9 +53,10 @@
     "webpack": "^2.7.0"
   },
   "peerDependencies": {
-    "material-ui": "^0.18.7",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "material-ui": "^1.0.0-beta.39",
+    "react": "^16.3.0",
+    "react-datetime": "^2.11.0",
+    "react-dom": "^16.3.0"
   },
   "scripts": {
     "lint": "eslint src",
