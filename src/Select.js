@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import ComposedComponent from './ComposedComponent';
-import MenuItem from 'material-ui/MenuItem';
-import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/Menu/MenuItem';
+import SelectField from 'material-ui/Select';
 
 class Select extends React.Component {
 
