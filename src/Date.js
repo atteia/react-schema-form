@@ -5,9 +5,8 @@ import React from 'react';
 var utils = require('./utils');
 var classNames = require('classnames');
 import ComposedComponent from './ComposedComponent';
-import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
-import Clear from 'material-ui-icons/Clear';
+import TextField from 'material-ui/TextField';
+import IconButton from 'material-ui/IconButton';
 
 /**
  * There is no default number picker as part of Material-UI.

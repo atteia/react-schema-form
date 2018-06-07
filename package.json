@@ -59,7 +59,7 @@
   },
   "scripts": {
     "lint": "eslint src",
-    "preversion": "webpack -p && git add dist",
+    "preversion": "NODE_ENV=production webpack -p && git add dist",
     "prepublish": "rimraf lib && babel src -d lib",
     "test": "npm run lint && jest"
   },
