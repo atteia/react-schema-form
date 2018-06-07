@@ -5,9 +5,9 @@ import React from 'react';
 var utils = require('./utils');
 var classNames = require('classnames');
 import ComposedComponent from './ComposedComponent';
-import DatePicker from 'material-ui/DatePicker/DatePicker';
-import IconButton from 'material-ui/IconButton';
-import Clear from 'material-ui/svg-icons/content/clear';
+import TextField from '@material-ui/core/TextField';
+import IconButton from '@material-ui/core/IconButton';
+import Clear from 'material-ui-icons/Clear';
 
 /**
  * There is no default number picker as part of Material-UI.
@@ -33,24 +33,20 @@ class Date extends React.Component {
 
         return (
             <div style={{width: '100%', display: 'block'}} className={this.props.form.htmlClass}>
-                <DatePicker
-                    mode={'landscape'}
-                    autoOk={true}
-                    floatingLabelText={this.props.form.title}
-                    hintText={this.props.form.title}
-                    onChange={this.onDatePicked}
-                    onShow={null}
-                    onDismiss={null}
-                    value={value}
-                    disabled={this.props.form.readonly}
-                    style={this.props.form.style || {width: '90%', display: 'inline-block'}}/>
-                {this.props.value &&
-                    <IconButton ref="button"
-                        onClick={() => this.props.onChangeValidate("")}
-                        style={{position: 'relative', display: 'inline-block', top: '6px',right: '4px', padding: '0', width: '24px', height: '24px'}}>
-                        <Clear />
-                    </IconButton>
-                }
+                <TextField
+                      id="datetime-local"
+                      label={this.props.form.title}
+                      type="datetime-local"
+                      value={value}
+                      onChange={this.onDatePicked}
+                      onShow={null}
+                      onDismiss={null}
+                      style={this.props.form.style || {width: '90%', display: 'inline-block'}}/>
+                      disabled={this.props.form.readonly}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
             </div>
         );
     }
