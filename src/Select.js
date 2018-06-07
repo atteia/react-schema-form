@@ -7,6 +7,7 @@ import MenuItem from 'material-ui/Menu/MenuItem';
 import SelectField from 'material-ui/Select';
 import Typography from 'material-ui/Typography';
 import Input, { InputLabel } from 'material-ui/Input';
+import { FormControl } from 'material-ui/Form';
 
 class Select extends React.Component {
 

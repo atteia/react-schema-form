@@ -138,7 +138,7 @@ class Array extends React.Component {
             arrays.push(
               <li key={i} className="list-group-item">
                   <div style={{ display: 'flex' }}>
-                      <IconButton onTouchTap={boundOnDelete}><Clear /></IconButton>
+                      <IconButton onClick={boundOnDelete}><Clear /></IconButton>
                       {forms}
                   </div>
               </li>
@@ -152,7 +152,7 @@ class Array extends React.Component {
                         {arrays}
                     </ol>
                 </div>
-                <Button variant="fab" mini color="secondary" aria-label={this.props.form.add || 'Add'} onTouchTap={this.onAppend}>
+                <Button variant="fab" mini color="secondary" aria-label={this.props.form.add || 'Add'} onClick={this.onAppend}>
                   <Add />
                 </Button>
             </div>
