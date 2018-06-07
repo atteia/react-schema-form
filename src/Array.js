@@ -17,6 +17,7 @@ import _ from 'lodash';
 import SchemaForm from './SchemaForm';
 import IconButton from 'material-ui/IconButton';
 import Clear from 'material-ui-icons/Clear';
+import Add from 'material-ui-icons/Add';
 
 class Array extends React.Component {
 
