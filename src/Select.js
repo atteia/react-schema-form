@@ -5,6 +5,8 @@ import React from 'react';
 import ComposedComponent from './ComposedComponent';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import SelectField from 'material-ui/Select';
+import Typography from 'material-ui/Typography';
+import Input, { InputLabel } from 'material-ui/Input';
 
 class Select extends React.Component {
 
@@ -45,22 +47,31 @@ class Select extends React.Component {
 
     render() {
         const menuItems = this.props.form.titleMap.map((item, idx) => (
-            <MenuItem key={idx}
-                      primaryText={item.name}
-                      value={item.value} />
+          <MenuItem
+            	key={idx}
+              value={item.value}
+            >
+              <Typography>
+            	  {item.name}
+              </Typography>
+          </MenuItem>
         ));
 
         return (
             <div className={this.props.form.htmlClass}>
-                <SelectField
+               <FormControl>
+                  <InputLabel htmlFor={`dropdown-${theUid}`}>{this.props.form.title}</InputLabel>
+                  <SelectField
                     value={this.state.currentValue}
-                    floatingLabelText={this.props.form.title}
-                    disabled={this.props.form.readonly}
                     onChange={this.onSelected}
-                    fullWidth={true} >
+                    style={{width: '150px'}}
+                    disabled={this.props.form.readonly}
+                    fullWidth
+                      >
 
-                    {menuItems}
-                </SelectField>
+                      {menuItems}
+                  </SelectField>
+              </FormControl>
             </div>
         );
     }

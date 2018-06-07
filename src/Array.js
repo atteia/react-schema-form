@@ -16,6 +16,7 @@ import Button from 'material-ui/Button';
 import _ from 'lodash';
 import SchemaForm from './SchemaForm';
 import IconButton from 'material-ui/IconButton';
+import Clear from 'material-ui-icons/Clear';
 
 class Array extends React.Component {
 
@@ -135,8 +136,10 @@ class Array extends React.Component {
             //console.log('forms', i, forms);
             arrays.push(
               <li key={i} className="list-group-item">
-                  <IconButton iconClassName="material-icons" tooltip="Remove" onTouchTap={boundOnDelete}>clear</IconButton>
-                  {forms}
+                  <div style={{ display: 'flex' }}>
+                      <IconButton onTouchTap={boundOnDelete}><Clear /></IconButton>
+                      {forms}
+                  </div>
               </li>
             );
         }
@@ -148,7 +151,9 @@ class Array extends React.Component {
                         {arrays}
                     </ol>
                 </div>
-                <Button variant="fab" mini color="secondary" aria-label={this.props.form.add || 'Add'} onTouchTap={this.onAppend}/>
+                <Button variant="fab" mini color="secondary" aria-label={this.props.form.add || 'Add'} onTouchTap={this.onAppend}>
+                  <Add />
+                </Button>
             </div>
         );
     }
