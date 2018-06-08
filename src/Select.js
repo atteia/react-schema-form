@@ -39,12 +39,12 @@ class Select extends React.Component {
         }
     }
 
-    onSelected(event, selectedIndex, menuItem) {
+    onSelected(event) {
 
         this.setState({
-            currentValue: menuItem
+            currentValue: event.target.value
         });
-        event.target.value = menuItem;
+        
         this.props.onChangeValidate(event);
     }
 
