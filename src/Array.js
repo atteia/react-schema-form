@@ -128,7 +128,7 @@ class Array extends React.Component {
         var model = this.state.model;
         var items = this.props.form.items;
         //console.log('fields', fields);
-        for(var i = 0; i < this.props.form.maxItems; i++ ) {
+        for(var i = 0; i <= model.length; i++ ) {
             let boundOnDelete = this.onDelete.bind(this, i);
             let forms = this.props.form.items.map(function(form, index){
                 var copy = this.copyWithIndex(form, i);

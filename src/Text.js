@@ -12,9 +12,10 @@ class Text extends React.Component {
             <div className={this.props.form.htmlClass}>
                 <TextField
                     type={this.props.form.type}
-                    floatingLabelText={this.props.form.title}
-                    hintText={this.props.form.placeholder}
-                    errorText={this.props.error}
+                    label={this.props.form.title}
+                    placeholder={this.props.form.placeholder}
+                    helperText={this.props.error}
+                    error={(this.props.error)? true : false}
                     onChange={this.props.onChangeValidate}
                     defaultValue={this.props.value}
                     disabled={this.props.form.readonly}
