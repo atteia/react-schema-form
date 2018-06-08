@@ -17,19 +17,22 @@ class Select extends React.Component {
         super(props);
         this.onSelected = this.onSelected.bind(this);
         var possibleValue = this.getModelKey(this.props.model, this.props.form.key);
+        const currentValue = this.props.model !== undefined && typeof possibleValue === 'string' ? possibleValue : this.props.form.titleMap != null ? this.props.form.titleMap[0].value : '';
+
         this.state = {
-            currentValue: this.props.model !== undefined && possibleValue ? possibleValue : this.props.form.titleMap != null ? this.props.form.titleMap[0].value : ''
+          currentValue:currentValue,
         };
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.model && nextProps.form.key) {
-            this.setState({
-                currentValue: this.getModelKey(nextProps.model, nextProps.form.key)
-                || (nextProps.form.titleMap != null ? nextProps.form.titleMap[0].value : '')
-            });
-        }
+    if (nextProps.model && nextProps.form.key) {
+      const possibleValue = this.getModelKey(nextProps.model, nextProps.form.key);
+      const currentValue = nextProps.model !== undefined && typeof possibleValue === 'string' ? possibleValue : nextProps.form.titleMap != null ? nextProps.form.titleMap[0].value : '';
+      this.setState({
+        currentValue
+      });
     }
+  }
 
     getModelKey(model, key) {
         if (Array.isArray(key)) {
@@ -44,7 +47,7 @@ class Select extends React.Component {
         this.setState({
             currentValue: event.target.value
         });
-        
+
         this.props.onChangeValidate(event);
     }
 
