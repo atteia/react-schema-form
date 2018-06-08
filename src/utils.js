@@ -115,6 +115,16 @@ var date = function(name, schema, options) {
     }
 };
 
+var toggleswitch = function(name, schema, options) {
+  if (stripNullType(schema.type) === 'boolean') {
+    var f = stdFormObj(name, schema, options);
+    f.key  = options.path;
+    f.type = 'toggleswitch';
+    options.lookup[ObjectPath.stringify(options.path)] = f;
+    return f;
+  }
+};
+
 var checkbox = function(name, schema, options) {
     if (stripNullType(schema.type) === 'boolean') {
         var f = stdFormObj(name, schema, options);
@@ -136,6 +146,19 @@ var select = function(name, schema, options) {
         options.lookup[ObjectPath.stringify(options.path)] = f;
         return f;
     }
+};
+
+var toggleswitches = function(name, schema, options) {
+  if (stripNullType(schema.type) === 'array' && schema.items && schema.items['enum']) {
+    var f = stdFormObj(name, schema, options);
+    f.key  = options.path;
+    f.type = 'toggleswitches';
+    if (!f.titleMap) {
+      f.titleMap = enumToTitleMap(schema.items['enum']);
+    }
+    options.lookup[ObjectPath.stringify(options.path)] = f;
+    return f;
+  }
 };
 
 var checkboxes = function(name, schema, options) {
@@ -226,9 +249,10 @@ var defaults = {
     object:  [fieldset],
     number:  [number],
     integer: [integer],
-    boolean: [checkbox],
-    array:   [checkboxes, array],
-    date:    [date]
+    boolean: [toggleswitch],
+    array:   [toggleswitches, array],
+    date:    [date],
+    checkbox: [checkbox]
 };
 
 function defaultFormDefinition(name, schema, options) {
@@ -596,6 +620,8 @@ module.exports = {
     fieldset: fieldset,
     checkboxes: checkboxes,
     select: select,
+    toggleswitches: toggleswitches,
+    toggleswitch: toggleswitch,
     checkbox: checkbox,
     integer:integer,
     number: number,

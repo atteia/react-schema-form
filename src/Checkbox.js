@@ -4,19 +4,25 @@
 import React from 'react';
 import ComposedComponent from './ComposedComponent';
 import Checkbox from 'material-ui/Checkbox';
+import { FormControlLabel } from 'material-ui/Form';
 
 class Checkbox2 extends React.Component {
     render() {
         return (
             <div className={this.props.form.className}>
-                <Checkbox
-                    name={this.props.form.key.slice(-1)[0]}
-                    value={this.props.form.key.slice(-1)[0]}
-                    checked={this.props.value || false}
-                    label={this.props.form.title}
-                    disabled={this.props.form.readonly}
-                    onCheck={(e, checked) => {this.props.onChangeValidate(e)}}
-                    />
+              <FormControlLabel
+                control={
+                    <Checkbox
+                        name={this.props.form.key.slice(-1)[0]}
+                        value={this.props.form.key.slice(-1)[0]}
+                        checked={this.props.value || false}
+                        disabled={this.props.form.readonly}
+                        color={this.props.form.color || "primary"}
+                        onCheck={(e, checked) => {this.props.onChangeValidate(e)}}
+                        />
+                }
+                label={this.props.form.title}
+              />
              </div>
         );
     }
