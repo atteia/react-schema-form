@@ -9,6 +9,7 @@ import TextArea from './TextArea';
 import Select from './Select';
 import Radios from './Radios';
 import Date from './Date';
+import Switch from './Switch';
 import Checkbox from './Checkbox';
 import Help from './Help';
 import Array from './Array';
@@ -25,6 +26,7 @@ class SchemaForm extends React.Component {
         'select': Select,
         'radios': Radios,
         'date': Date,
+        'toggleswitch': Switch,
         'checkbox': Checkbox,
         'help': Help,
         'array': Array,
