@@ -9,6 +9,8 @@ import Typography from 'material-ui/Typography';
 import Input, { InputLabel } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
 
+const uid = ()=>([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,a=>(a^Math.random()*16>>a/4).toString(16));
+
 class Select extends React.Component {
 
     constructor(props) {
@@ -47,6 +49,7 @@ class Select extends React.Component {
     }
 
     render() {
+
         const menuItems = this.props.form.titleMap.map((item, idx) => (
           <MenuItem
             	key={idx}
@@ -57,12 +60,14 @@ class Select extends React.Component {
               </Typography>
           </MenuItem>
         ));
+        const theUid = uid();
 
         return (
             <div className={this.props.form.htmlClass}>
                <FormControl>
                   <InputLabel htmlFor={`dropdown-${theUid}`}>{this.props.form.title}</InputLabel>
                   <SelectField
+                    input={<Input id={`dropdown-${theUid}`} />}
                     value={this.state.currentValue}
                     onChange={this.onSelected}
                     style={{width: '150px'}}
