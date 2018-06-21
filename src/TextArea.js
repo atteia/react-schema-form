@@ -14,6 +14,7 @@ class TextArea extends React.Component {
             <div className={this.props.form.htmlClass}>
                 <TextField
                   multiLine={true}
+                  margin="normal"
                   type={this.props.form.type}
                   label={this.props.form.title}
                   placeholder={this.props.form.placeholder}
@@ -22,8 +23,9 @@ class TextArea extends React.Component {
                   onChange={this.props.onChangeValidate}
                   defaultValue={this.props.value}
                   disabled={this.props.form.readonly}
+                  inputStyle={this.props.form.style || {width: '100%',minHeight:'160'}}
                   style={this.props.form.style || {width: '100%',minHeight:'160'}}
-                  rows={this.props.form.rows || 4}
+                  rows={this.props.form.rows || 7}
                   rowsMax={this.props.form.rowsMax}
                 />
             </div>
