@@ -18,7 +18,7 @@ class Checkbox2 extends React.Component {
                         checked={this.props.value || false}
                         disabled={this.props.form.readonly}
                         color={this.props.form.color || "primary"}
-                        onCheck={(e, checked) => {this.props.onChangeValidate(e)}}
+                        onChange={(e, checked) => {this.props.onChangeValidate(e)}}
                         />
                 }
                 label={this.props.form.title}

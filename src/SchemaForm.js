@@ -53,7 +53,11 @@ class SchemaForm extends React.Component {
         if(form.condition && eval(form.condition) === false) {
           return null;
         }
-        return <Field model={model} form={form} key={index} onChange={onChange} mapper={mapper} builder={this.builder}/>
+        return (
+            <div key={index} style={{ marginTop: 10 , minWidth:360, width:"100%" }}>
+                <Field model={model} form={form} onChange={onChange} mapper={mapper} builder={this.builder}/>
+            </div>
+          );
     }
 
     render() {
