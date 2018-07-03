@@ -4,26 +4,31 @@ import { FormControlLabel } from 'material-ui/Form';
 import Switch from 'material-ui/Switch';
 
 class FormSwitch extends Component {
+  state = {
+    value:this.props.value || false,
+
+  }
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.checked });
+    this.props.onChangeValidate(event);
+  };
+
   render() {
-  	const {
-  		form,
-  		value,
-  		onChangeValidate,
-  	} = this.props;
 
     return (
-      <div className={form.className}>
+      <div className={this.props.form.className}>
         <FormControlLabel
           control={
             <Switch
-          		name={form.key.slice(-1)[0]}
-		          value={form.key.slice(-1)[0]}
-		          checked={value || false}
-          		disabled={form.readonly}
-              onChange={(e, checked) => {onChangeValidate(e)}}
+               name={this.props.form.key.slice(-1)[0]}
+               value={this.props.form.key.slice(-1)[0]}
+               checked={this.state.value}
+               disabled={this.props.form.readonly}
+               onChange={this.handleChange('value')}
             />
           }
-          label={form.title}
+          label={this.props.form.title}
         />
      </div>
     );

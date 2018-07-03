@@ -482,6 +482,13 @@ function merge(schema, form, ignore, options, readonly) {
             obj.schema['default'] = false;
         }
 
+        // Special case: toggleswitch
+         // Since have to ternary state we need a default
+        if (obj.type === 'toggleswitch' && _.isUndefined(obj.schema['default'])) {
+           obj.schema['default'] = false;
+         }
+
+         
         return obj;
     }));
 }
